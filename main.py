@@ -27,7 +27,7 @@ for birthday_person in  birthdays_dict:
         contents = letter_file.read()
         contents = contents.replace("[NAME]", birthdays_dict[birthday_person]["name"])
 
-    with smtplib.SMTP("YOUR EMAIL PROVIDER SMTP SERVER ADDRESS") as connection:
+    with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
         connection.login(MY_EMAIL, MY_PASSWORD)
         connection.sendmail(
