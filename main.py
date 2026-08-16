@@ -22,6 +22,7 @@ data = pandas.read_csv("birthdays.csv")
 birthdays_dict = { f"name{index}": {"name":data_row["name"],"email":data_row["email"]} for (index, data_row) in data.iterrows() if today_tuple == (data_row["month"], data_row["day"])}
 for birthday_person in  birthdays_dict:
     file_path = f"letter_templates/letter_{random.randint(1, 3)}.txt"
+    print(f"This is ran for {birthday_person}")
     with open(file_path) as letter_file:
         contents = letter_file.read()
         contents = contents.replace("[NAME]", birthdays_dict[birthday_person]["name"])
